@@ -1,7 +1,8 @@
 # My Cocotb Journey
 
-## Setting Up Environment 
-
+<details>
+ <summary> Setting Up Environment  </summary>
+  
 **Installing prerequisites & iverilog:**
 
 ![Screenshot from 2024-09-05 17-14-05](https://github.com/user-attachments/assets/ed9de94d-3182-42af-839b-d7b8bcde244c)
@@ -27,6 +28,7 @@ sudo apt-get install python3-venv
 
 -This makes sure that the global python isn't corrupted.
 
+</details>	
 
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
