@@ -1,7 +1,7 @@
 # My Cocotb Journey
 
 <details>
- <summary> Setting Up Environment  </summary>
+ <summary> Environment Set Up  </summary>
   
 **Installing prerequisites & iverilog:**
 
@@ -31,9 +31,37 @@ python3 -m venv venv
 
 ![image](https://github.com/user-attachments/assets/5f0eafe0-bb71-47ce-9072-2bceffbd13c1)
 ```bash
- which python3
+which python3
 source venv/bin/activate
 ```
+
+**Installing necessary packages:**
+
+**Possible Error & Fix:**
+![image](https://github.com/user-attachments/assets/8633862b-9204-486b-930b-fc3bc513fc1b)
+![image](https://github.com/user-attachments/assets/c9ae8d95-a292-487c-9a90-6471b1d133b4)
+```bash
+pip3 install pytest cocotb cocotb-bus cocotb-coverage
+```
+
+![image](https://github.com/user-attachments/assets/c917a725-3593-4227-bccd-9e4691d9e4f9)
+```bash
+pip3 install wheel
+pip3 install pytest cocotb cocotb-bus cocotb-coverage
+```
+
+![image](https://github.com/user-attachments/assets/0f928a1f-a1d5-40fa-b6eb-b40ef5bfb9f1)
+```bash
+ls venv/lib/python3.6/site-packages/
+```
+
+
+
+
+
+
+
+
 
 </details>	
 
