@@ -5,6 +5,8 @@
   
 **Installing prerequisites & iverilog:**
 
+>[Installation](https://docs.cocotb.org/en/stable/install.html)
+
 ![Screenshot from 2024-09-05 17-14-05](https://github.com/user-attachments/assets/ed9de94d-3182-42af-839b-d7b8bcde244c)
 ```bash
 sudo apt-get install make python3 python3-pip libpython3-dev
@@ -20,13 +22,18 @@ python3 -m venv venv
 ![image](https://github.com/user-attachments/assets/2d4dafc3-2e0f-42fb-abf3-3311c0837016)
 ```bash
 sudo apt-get install python3-venv
+python3 -m venv venv
 ```
 
 **Creating Virtual Environment:**
 
-![image](https://github.com/user-attachments/assets/2f6f904a-51e5-42f8-92f8-f9430dbd228f)
+-This makes sure that the global Python installation isn't corrupted.
 
--This makes sure that the global python isn't corrupted.
+![image](https://github.com/user-attachments/assets/5f0eafe0-bb71-47ce-9072-2bceffbd13c1)
+```bash
+ which python3
+source venv/bin/activate
+```
 
 </details>	
 
