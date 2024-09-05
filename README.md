@@ -27,7 +27,7 @@ python3 -m venv venv
 
 **Creating Virtual Environment:**
 
--This makes sure that the global Python installation isn't corrupted.
+>This makes sure that the global Python installation isn't corrupted.
 
 ![image](https://github.com/user-attachments/assets/5f0eafe0-bb71-47ce-9072-2bceffbd13c1)
 ```bash
@@ -54,8 +54,20 @@ pip3 install pytest cocotb cocotb-bus cocotb-coverage
 ```bash
 ls venv/lib/python3.6/site-packages/
 ```
+> packages sucessfully installed
 
+**Simulation Example**
+![image](https://github.com/user-attachments/assets/cf7b3c1c-6452-4ed7-a666-bd870b994cad)
+```bash
+make or
+```
 
+**Makefile Structure:**
+![image](https://github.com/user-attachments/assets/9f66979d-dbed-441a-b7bb-8525d66a24ef)
+```bash
+vi Makefile
+```
+>To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
 
 
