@@ -1,7 +1,7 @@
 # My Cocotb Journey
 
 <details>
- <summary> Environment Set Up  </summary>
+ <summary> Local Environment Set Up  </summary>
   
 **Installing prerequisites & iverilog:**
 
