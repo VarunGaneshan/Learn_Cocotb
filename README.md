@@ -56,7 +56,13 @@ ls venv/lib/python3.6/site-packages/
 ```
 > packages sucessfully installed
 
-**Simulation Example**
+</details>	
+
+<details>
+ <summary> Simulation Example  </summary>
+
+**Using Local Simulation:**
+
 ![image](https://github.com/user-attachments/assets/cf7b3c1c-6452-4ed7-a666-bd870b994cad)
 ```bash
 make or
@@ -69,8 +75,7 @@ vi Makefile
 ```
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
-
-
+**Using Github actions:**
 
 
 
