@@ -1,7 +1,7 @@
-![image](https://github.com/user-attachments/assets/a43d63db-3b2b-47a2-9f2f-bafaf029fce4)![image](https://github.com/user-attachments/assets/afa7e09b-3bcd-4547-8c46-3b6517c84305)# My Cocotb Journey
+# My Cocotb Journey
 
 <details>
- <summary> Local Environment Set Up  </summary>
+ <summary> Environment Set Up  </summary>
   
 **Installing prerequisites & iverilog:**
 
@@ -106,19 +106,28 @@ jobs:
 ```
 ![image](https://github.com/user-attachments/assets/1291efdd-2850-4b49-9b1a-e3eb8fe52e07)
 
-Waveform:
+**OR-Waveform**:
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
 </details>	
 
 <details>
  <summary> Xor Verification  </summary>
  
+**Clone the repo locally**:
 ![image](https://github.com/user-attachments/assets/635dd656-adcd-4fcf-adaa-8f64e8696810)
-
+```bash
+git clone https://github.com/learn-cocotb/assignment-xor.git
+cd assignment-xor/
+cd tests
+```
 ![image](https://github.com/user-attachments/assets/0340622a-2150-4be0-890b-ff2f330469e0)
-
+```bash
+vi dut_test.py
+```
 ![image](https://github.com/user-attachments/assets/605f985f-f168-40ba-8565-156b01f3ef4c)
-
+```bash
+make
+```
 </details>	
 
 ## References 
