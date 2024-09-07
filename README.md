@@ -1,4 +1,4 @@
-# My Cocotb Journey
+![image](https://github.com/user-attachments/assets/a43d63db-3b2b-47a2-9f2f-bafaf029fce4)![image](https://github.com/user-attachments/assets/afa7e09b-3bcd-4547-8c46-3b6517c84305)# My Cocotb Journey
 
 <details>
  <summary> Local Environment Set Up  </summary>
@@ -76,9 +76,48 @@ vi Makefile
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
 **Using Github actions:**
+![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
+>Run or target
 
+![image](https://github.com/user-attachments/assets/fbe83226-1ee7-4470-89ad-4f3cb81d44f3)
+```bash
+name: learning-cocotb
+run-name: ${{ github.actor }} is learning Cocotb
+on: [push]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt install -y --no-install-recommends iverilog
+      - run: pip3 install cocotb cocotb-bus
+      - run: make -C tests or
+      - uses: actions/upload-artifact@v3
+        with:
+          name: waveform
+          path: tests/*.vcd
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/tests/results.xml'
+```
+![image](https://github.com/user-attachments/assets/1291efdd-2850-4b49-9b1a-e3eb8fe52e07)
 
+Waveform:
+![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
+</details>	
+
+<details>
+ <summary> Xor Verification  </summary>
+ 
+![image](https://github.com/user-attachments/assets/635dd656-adcd-4fcf-adaa-8f64e8696810)
+
+![image](https://github.com/user-attachments/assets/0340622a-2150-4be0-890b-ff2f330469e0)
+
+![image](https://github.com/user-attachments/assets/605f985f-f168-40ba-8565-156b01f3ef4c)
 
 </details>	
 
