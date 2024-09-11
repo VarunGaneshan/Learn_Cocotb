@@ -1,5 +1,7 @@
-# My Cocotb Journey
-
+![image](https://github.com/user-attachments/assets/7e897c61-3694-4d33-8ef4-a6839922faf7)![image](https://github.com/user-attachments/assets/3f92fb17-912c-4375-9468-2f05b03653f4)# My Cocotb Journey
+COroutine based COsimulation TestBench environment for python verification of RTL design.
+![image](https://github.com/user-attachments/assets/c8d9c7c0-cc9d-4828-ab0d-ab31fa73da6c)
+   
 <details>
  <summary> Environment Set Up  </summary>
   
@@ -128,6 +130,31 @@ vi dut_test.py
 ```bash
 make
 ```
+</details>	
+
+<details>
+ <summary> Or Verification  </summary>
+ 
+ ![image](https://github.com/user-attachments/assets/e67df17f-c3fd-4c21-9f73-22d43ddf2671)
+
+![image](https://github.com/user-attachments/assets/2855e13d-69aa-4ac7-86d9-fc87d23e3fb7)
+
+![image](https://github.com/user-attachments/assets/91efa683-a501-48de-b0d8-a81468314e18)
+
+![image](https://github.com/user-attachments/assets/c572d1e2-482e-46b2-835a-21012d57697c)
+
+![image](https://github.com/user-attachments/assets/c2a77aaf-6252-415e-ad15-8e9fd8190bfe)
+
+![image](https://github.com/user-attachments/assets/b167d14e-82b7-4dc6-be69-a928c52a3369)
+
+![image](https://github.com/user-attachments/assets/3a0c657a-6b1a-40b0-89b3-f396bef4ec1b)
+
+![image](https://github.com/user-attachments/assets/c114b2c6-3bdc-401d-ac03-7941aa691394)
+
+```bash
+
+```
+
 </details>	
 
 ## References 
