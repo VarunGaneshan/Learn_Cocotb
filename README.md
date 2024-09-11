@@ -37,7 +37,7 @@ source venv/bin/activate
 
 **Installing necessary packages:**
 
-**Possible Error & Fix:**
+**Possible Error & Fix: Install missing package**
 ![image](https://github.com/user-attachments/assets/8633862b-9204-486b-930b-fc3bc513fc1b)
 ![image](https://github.com/user-attachments/assets/c9ae8d95-a292-487c-9a90-6471b1d133b4)
 ```bash
