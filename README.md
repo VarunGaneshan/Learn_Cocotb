@@ -1,5 +1,7 @@
 # My Cocotb Journey
+
 COroutine based COsimulation TestBench environment for python verification of RTL design.
+
 ![image](https://github.com/user-attachments/assets/c8d9c7c0-cc9d-4828-ab0d-ab31fa73da6c)
    
 <details>
