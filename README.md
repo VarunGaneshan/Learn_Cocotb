@@ -2,7 +2,30 @@
 
 COroutine based COsimulation TestBench environment for python verification of RTL design.
 
-![image](https://github.com/user-attachments/assets/c8d9c7c0-cc9d-4828-ab0d-ab31fa73da6c)
+# Learning Journey
+
+- Hello world. OR Gate.
+- Interfaces
+- Randomization
+- Drivers
+- Monitors
+- Scoreboards
+- Coverage
+  - Functional coverage
+    - Bins and cross coverage
+  - CRV
+- BFM's:
+  - AXI
+  - APB
+  - Wishbone
+  - Avalon
+  - PCIe
+  - Ethernet
+  - UART
+  - SPI
+  - I2C
+  ...
+
    
 <details>
  <summary> Environment Set Up  </summary>
