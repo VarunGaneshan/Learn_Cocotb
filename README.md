@@ -79,6 +79,7 @@ vi Makefile
 ```
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
+
 **Using Github actions:**
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
@@ -150,6 +151,9 @@ make
 ![image](https://github.com/user-attachments/assets/b167d14e-82b7-4dc6-be69-a928c52a3369)
 
 ![image](https://github.com/user-attachments/assets/3a0c657a-6b1a-40b0-89b3-f396bef4ec1b)
+
+![image](https://github.com/user-attachments/assets/6a6ed363-c778-44b5-982f-98a041aa09ae)
+
 
 ![image](https://github.com/user-attachments/assets/5972a54c-213c-487e-a95e-25722e45e24b)
 
