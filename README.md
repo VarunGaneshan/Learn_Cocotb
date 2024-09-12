@@ -167,5 +167,26 @@ make
 
 </details>	
 
+<details>
+   
+![image](https://github.com/user-attachments/assets/fa44557d-85ba-4209-8804-d3ab094c1050)
+
+![image](https://github.com/user-attachments/assets/9071da10-b554-4fd2-902f-5add412140d5)
+
+![image](https://github.com/user-attachments/assets/32a5bd36-8b68-45d9-a5f2-829657ebc09f)
+
+![image](https://github.com/user-attachments/assets/47bb37c8-96cd-4fc8-98e3-21fce5baeca7)
+
+![image](https://github.com/user-attachments/assets/efd29aaf-b4e3-4658-b7db-ecf0a4635d00)
+
+![image](https://github.com/user-attachments/assets/6b673803-3f7a-4c46-b1b1-29e62faae047)
+
+![image](https://github.com/user-attachments/assets/cdf20c66-8e07-47ee-a56e-742f901086a6)
+
+```bash
+
+```
+</details>	
+
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
