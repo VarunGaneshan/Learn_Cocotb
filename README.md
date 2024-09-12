@@ -168,6 +168,7 @@ make
 </details>	
 
 <details>
+ <summary> Xor Verification  </summary>
    
 ![image](https://github.com/user-attachments/assets/fa44557d-85ba-4209-8804-d3ab094c1050)
 
