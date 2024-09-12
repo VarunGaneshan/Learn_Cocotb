@@ -14,7 +14,7 @@ COroutine based COsimulation TestBench environment for python verification of RT
   - Functional coverage
     - Bins and cross coverage
   - CRV
-- BFM's:
+- BFM's: (Bus Functional Module)
   - AXI
   - APB
   - Wishbone
@@ -24,8 +24,6 @@ COroutine based COsimulation TestBench environment for python verification of RT
   - UART
   - SPI
   - I2C
-  ...
-
    
 <details>
  <summary> Environment Set Up  </summary>
