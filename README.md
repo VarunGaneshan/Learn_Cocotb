@@ -1,8 +1,6 @@
-# My Cocotb Journey
-
-COroutine based COsimulation TestBench environment for python verification of RTL design.
-
 # Learning Journey
+
+cocotb is a coroutine-based co-simulation library for writing Verilog test benches in Python. All you need is Python, gnu make and a hdl simulator(iverilog in my case).
 
 - Hello world. OR Gate.
 - Interfaces
@@ -211,3 +209,8 @@ make
 
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
+
+[How to Get started with Cocotb-Rahul Behl](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
+
+[Git with Vscode](https://www.youtube.com/watch?v=i_23KUAEtUM&pp=ygUbdnNjb2RlIGluIGxpbnV4IHdpdGggZ2l0aHVi)
+
