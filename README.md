@@ -102,6 +102,7 @@ vi Makefile
 
 
 **Using Github actions:**
+
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
 >Run or target
@@ -196,8 +197,6 @@ make
 ![image](https://github.com/user-attachments/assets/9071da10-b554-4fd2-902f-5add412140d5)
 
 ![image](https://github.com/user-attachments/assets/32a5bd36-8b68-45d9-a5f2-829657ebc09f)
-
-![image](https://github.com/user-attachments/assets/47bb37c8-96cd-4fc8-98e3-21fce5baeca7)
 
 ![image](https://github.com/user-attachments/assets/efd29aaf-b4e3-4658-b7db-ecf0a4635d00)
 
