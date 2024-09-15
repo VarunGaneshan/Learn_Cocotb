@@ -210,7 +210,7 @@ make
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
 
-[Learn Cocotb](https://learncocotb.com/docs/cocotb-tutorial/)
+[Learncocotb](https://learncocotb.com/docs/cocotb-tutorial/)
 
 [How to Get started with Cocotb-Rahul Behl](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
 
