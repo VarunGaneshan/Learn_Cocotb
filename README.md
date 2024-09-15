@@ -210,7 +210,11 @@ make
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
 
+[Learn Cocotb](https://learncocotb.com/docs/cocotb-tutorial/)
+
 [How to Get started with Cocotb-Rahul Behl](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
+
+[Cern for CERN](https://indico.cern.ch/event/776422/attachments/1769690/2874927/cocotb_talk.pdf)
 
 [Git with Vscode](https://www.youtube.com/watch?v=i_23KUAEtUM&pp=ygUbdnNjb2RlIGluIGxpbnV4IHdpdGggZ2l0aHVi)
 
