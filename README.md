@@ -1,8 +1,8 @@
 # Learning Journey
 
-cocotb is a coroutine-based co-simulation library for writing Verilog test benches in Python. All you need is Python, gnu make and a hdl simulator(iverilog in my case).
+cocotb is a coroutine-based co-simulation library for writing Verilog test benches in Python. All you need is Python, gnu make and a hdl simulator.
 
-- Hello world. OR Gate.
+- Hello world - OR Gate
 - Interfaces
 - Randomization
 - Drivers
