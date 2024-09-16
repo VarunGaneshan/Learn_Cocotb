@@ -159,14 +159,16 @@ on:
 
 ![image](https://github.com/user-attachments/assets/035053c0-e93c-4efc-921c-2654ab83a905)
 
+**Waveform**:
+
 ![image](https://github.com/user-attachments/assets/9be2731a-4dc9-4155-b7a2-177fdafe97b3)
 
 ![image](https://github.com/user-attachments/assets/4ec7a1c6-2d17-4a49-aaa8-58821f64c641)
 
 >[ Online waveform viewer](https://vc.drom.io/)
 
-**OR-Waveform**:
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
+
 </details>	
 
 <details>
