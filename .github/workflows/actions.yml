@@ -1,6 +1,7 @@
 name: learning-cocotb
 run-name: ${{ github.actor }} is learning Cocotb
-on: workflow_dispatch:
+on: 
+  workflow_dispatch:
 jobs:
   verify:
     runs-on: ubuntu-latest
