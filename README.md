@@ -1,6 +1,6 @@
 # Learning Journey
 
-cocotb is a coroutine-based co-simulation library for writing Verilog test benches in Python. All you need is Python, gnu make and a hdl simulator.
+cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
 
 - Hello world - OR Gate
 - Interfaces
@@ -46,7 +46,6 @@ python3 -m venv venv
 ![image](https://github.com/user-attachments/assets/2d4dafc3-2e0f-42fb-abf3-3311c0837016)
 ```bash
 sudo apt-get install python3-venv
-python3 -m venv venv
 ```
 
 >This makes sure that the global Python installation isn't corrupted.
@@ -69,7 +68,6 @@ pip3 install pytest cocotb cocotb-bus cocotb-coverage
 ![image](https://github.com/user-attachments/assets/c917a725-3593-4227-bccd-9e4691d9e4f9)
 ```bash
 pip3 install wheel
-pip3 install pytest cocotb cocotb-bus cocotb-coverage
 ```
 
 ![image](https://github.com/user-attachments/assets/0f928a1f-a1d5-40fa-b6eb-b40ef5bfb9f1)
@@ -114,8 +112,6 @@ include $(shell cocotb-config --makefiles)/Makefile.sim #include cocotb Makefile
 
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
->Run or target
-
 ![image](https://github.com/user-attachments/assets/fbe83226-1ee7-4470-89ad-4f3cb81d44f3)
 ```bash
 name: learning-cocotb
@@ -141,14 +137,16 @@ jobs:
           report_paths: '**/tests/results.xml'
 ```
 ```bash
-To run it manually instead of on: [push] use
+To run it manually instead of on: [push] - everytime you push,use 
 on:
 	workflow_dispatch:
 ```
-
-![image](https://github.com/user-attachments/assets/1291efdd-2850-4b49-9b1a-e3eb8fe52e07)
-
 ![image](https://github.com/user-attachments/assets/e51d2e0e-f045-4d33-84ff-03797f35c0cb)
+
+![image](https://github.com/user-attachments/assets/a7d7e098-01a8-474f-bd1b-13b05fab19d7)
+
+![image](https://github.com/user-attachments/assets/178dcb6f-fde6-4c57-b404-21826d04c6b5)
+
 
 **OR-Waveform**:
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
