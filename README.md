@@ -116,23 +116,34 @@ include $(shell cocotb-config --makefiles)/Makefile.sim #include cocotb Makefile
 ```bash
 name: learning-cocotb
 run-name: ${{ github.actor }} is learning Cocotb
-on: [push]
+on:
+  workflow_dispatch:
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    permissions:
+      contents: write
+      checks: write
+      actions: write
     steps:
       - uses: actions/checkout@v3
+      
       - run: sudo apt install -y --no-install-recommends iverilog
+      
       - run: pip3 install cocotb cocotb-bus
+      
       - run: make -C tests or
-      - uses: actions/upload-artifact@v3
+      
+      - uses: actions/upload-artifact@v4
         with:
           name: waveform
           path: tests/*.vcd
+
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v3
-        if: always() # always run even if the previous step fails
+        if: always()
         with:
           report_paths: '**/tests/results.xml'
 ```
@@ -145,8 +156,15 @@ on:
 
 ![image](https://github.com/user-attachments/assets/a7d7e098-01a8-474f-bd1b-13b05fab19d7)
 
+![image](https://github.com/user-attachments/assets/b371df38-e480-4e2e-aec8-9e7875f468a2)
+
+![image](https://github.com/user-attachments/assets/035053c0-e93c-4efc-921c-2654ab83a905)
+
 ![image](https://github.com/user-attachments/assets/178dcb6f-fde6-4c57-b404-21826d04c6b5)
 
+![image](https://github.com/user-attachments/assets/4ec7a1c6-2d17-4a49-aaa8-58821f64c641)
+
+>[ Online waveform viewer](https://vc.drom.io/)
 
 **OR-Waveform**:
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
