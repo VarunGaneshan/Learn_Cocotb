@@ -110,7 +110,6 @@ include $(shell cocotb-config --makefiles)/Makefile.sim #include cocotb Makefile
 ```
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
-
 **Using Github actions:**
 
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
@@ -141,9 +140,15 @@ jobs:
         with:
           report_paths: '**/tests/results.xml'
 ```
-> To run it manually use workflow_dispatch: instead of [push]
+```bash
+To run it manually instead of on: [push] use
+on:
+	workflow_dispatch:
+```
 
 ![image](https://github.com/user-attachments/assets/1291efdd-2850-4b49-9b1a-e3eb8fe52e07)
+
+![image](https://github.com/user-attachments/assets/e51d2e0e-f045-4d33-84ff-03797f35c0cb)
 
 **OR-Waveform**:
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
