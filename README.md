@@ -148,19 +148,18 @@ jobs:
           report_paths: '**/tests/results.xml'
 ```
 ```bash
-To run it manually instead of on: [push] - everytime you push,use 
+on: [push] - run every time you push
+To run it manually use
 on:
 	workflow_dispatch:
 ```
 ![image](https://github.com/user-attachments/assets/e51d2e0e-f045-4d33-84ff-03797f35c0cb)
 
-![image](https://github.com/user-attachments/assets/a7d7e098-01a8-474f-bd1b-13b05fab19d7)
-
 ![image](https://github.com/user-attachments/assets/b371df38-e480-4e2e-aec8-9e7875f468a2)
 
 ![image](https://github.com/user-attachments/assets/035053c0-e93c-4efc-921c-2654ab83a905)
 
-![image](https://github.com/user-attachments/assets/178dcb6f-fde6-4c57-b404-21826d04c6b5)
+![image](https://github.com/user-attachments/assets/9be2731a-4dc9-4155-b7a2-177fdafe97b3)
 
 ![image](https://github.com/user-attachments/assets/4ec7a1c6-2d17-4a49-aaa8-58821f64c641)
 
