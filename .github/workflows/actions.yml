@@ -9,6 +9,8 @@ jobs:
     timeout-minutes: 3
     permissions:
       contents: write
+      checks: write
+      actions: write
     steps:
       - uses: actions/checkout@v3
       
