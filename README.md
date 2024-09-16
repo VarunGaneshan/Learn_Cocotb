@@ -35,6 +35,7 @@ cocotb is a coroutine-based co-simulation library for writing Verilog test bench
 sudo apt-get install make python3 python3-pip libpython3-dev
 sudo apt-get install iverilog
 ```
+**Creating Virtual Environment:**
 
 **Possible Error & Fix:**
 
@@ -48,8 +49,6 @@ sudo apt-get install python3-venv
 python3 -m venv venv
 ```
 
-**Creating Virtual Environment:**
-
 >This makes sure that the global Python installation isn't corrupted.
 
 ![image](https://github.com/user-attachments/assets/5f0eafe0-bb71-47ce-9072-2bceffbd13c1)
@@ -60,7 +59,7 @@ source venv/bin/activate
 
 **Installing necessary packages:**
 
-**Possible Error & Fix: Install missing package**
+**Possible Error & Fix: Install missing wheel package**
 ![image](https://github.com/user-attachments/assets/8633862b-9204-486b-930b-fc3bc513fc1b)
 ![image](https://github.com/user-attachments/assets/c9ae8d95-a292-487c-9a90-6471b1d133b4)
 ```bash
@@ -93,8 +92,21 @@ make or
 
 **Makefile Structure:**
 ![image](https://github.com/user-attachments/assets/9f66979d-dbed-441a-b7bb-8525d66a24ef)
+
 ```bash
 vi Makefile
+
+SIM ?= icarus #simulator
+TOPLEVEL_LANG ?= verilog
+#declaring source files
+VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v 
+VERILOG_SOURCES += $(PWD)/wrappers/or_test.v
+#define make target
+or:
+	rm -rf sim_build
+	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #python module and verilog file
+include $(shell cocotb-config --makefiles)/Makefile.sim #include cocotb Makefile, which is always declared at last as it has its own make target.
+
 ```
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
@@ -129,6 +141,8 @@ jobs:
         with:
           report_paths: '**/tests/results.xml'
 ```
+> To run it manually use workflow_dispatch: instead of [push]
+
 ![image](https://github.com/user-attachments/assets/1291efdd-2850-4b49-9b1a-e3eb8fe52e07)
 
 **OR-Waveform**:
