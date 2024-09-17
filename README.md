@@ -85,7 +85,7 @@ ls venv/lib/python3.6/site-packages/
 </details>	
 
 <details>
- <summary> Or Simulation Example  </summary>
+ <summary> Or Verification Example  </summary>
 
 **Using Local Simulation:**
 
@@ -213,7 +213,7 @@ make
 </details>	
 
 <details>
- <summary> Or verification Demystifed</summary>
+ <summary> Or Verification Demystifed</summary>
 	
 **Truth table-Expected Result/Functional Behaviour:**
 
