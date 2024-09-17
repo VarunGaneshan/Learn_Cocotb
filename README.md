@@ -91,6 +91,7 @@ ls venv/lib/python3.6/site-packages/
 
 ```bash
 git clone https://github.com/learn-cocotb/tutorial.git
+cd tests/
 ```
 
 ![image](https://github.com/user-attachments/assets/cf7b3c1c-6452-4ed7-a666-bd870b994cad)
@@ -105,21 +106,26 @@ make or
 ```bash
 vi Makefile
 
-SIM ?= icarus #simulator
+SIM ?= icarus #simulator used,?= means "set the variable only if it is not defined."
 TOPLEVEL_LANG ?= verilog
-#declaring source files
+#declaring source files that will be compiled and simulated.
 VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v 
 VERILOG_SOURCES += $(PWD)/wrappers/or_test.v
 #define make target
 or:
-	rm -rf sim_build
-	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #python module and verilog file
-include $(shell cocotb-config --makefiles)/Makefile.sim #include cocotb Makefile, which is always declared at last as it has its own make target.
-
+	rm -rf sim_build #clean build
+	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #python test file and top-level Verilog module
+include $(shell cocotb-config --makefiles)/Makefile.sim #This line includes the default Cocotb Makefile,It is always declared at last as it has its own make target which can run instead of or as default 'make' takes the first target.
 ```
+>$(shell cocotb-config --makefiles): This calls the cocotb-config command, which knows where the Cocotb installation is located, and fetches the Makefile.sim file.
+
+>Makefile.sim: This is a core Cocotb file that contains all the common rules for running the simulation, compiling, and linking your test with Cocotb.
+
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
 **Using Github actions:**
+
+>Go to the actions tab and create a new workflow.
 
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
@@ -172,11 +178,15 @@ on:
 
 **Waveform**:
 
+>Download the artifact from Summary.
+
 ![image](https://github.com/user-attachments/assets/9be2731a-4dc9-4155-b7a2-177fdafe97b3)
+
+>[Online waveform viewer](https://vc.drom.io/)
 
 ![image](https://github.com/user-attachments/assets/4ec7a1c6-2d17-4a49-aaa8-58821f64c641)
 
->[ Online waveform viewer](https://vc.drom.io/)
+>Gtkwave
 
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
 
@@ -205,13 +215,13 @@ make
 <details>
  <summary> Or verification Demystifed</summary>
 	
-**Truth table-Expected Results:**
- ![image](https://github.com/user-attachments/assets/0b5a7604-023f-4fac-8d40-c54a3eb9db09)	
- 
-OR gate design would be the DUT, and you'd write Python code to drive the OR gate inputs and check the outputs against expected results.
-DUT here stands for Device Under Test. It refers to the specific piece of hardware that is being tested or simulated
+**Truth table-Expected Result/Functional Behaviour:**
 
-![image](https://github.com/user-attachments/assets/e67df17f-c3fd-4c21-9f73-22d43ddf2671)
+![image](https://github.com/user-attachments/assets/0b5a7604-023f-4fac-8d40-c54a3eb9db09)	
+ 
+- OR gate design here would be the DUT, and you'd write Python code to drive the OR gate inputs and check the outputs against expected results.
+
+- DUT here stands for Device Under Test. It refers to the specific piece of hardware that is being tested or simulated.
 
 ```bash
 gedit hdl/or_gate.v
@@ -223,8 +233,6 @@ module or_gate(
 assign y=a|b; //DUT
 endmodule
 ```
-
-![image](https://github.com/user-attachments/assets/2855e13d-69aa-4ac7-86d9-fc87d23e3fb7)
 
 ```bash
 gedit tests/or_test.py
@@ -243,11 +251,12 @@ async def or_test(dut):
         await Timer(1, 'ns') 
         assert dut.y.value == y[i], f"Error at iteration {i}" 
 ```
->The Timer trigger pauses the execution for a specified amount of time, simulating delays or waiting for a certain duration within your test.
 
->RisingEdge waits for a signal to transition from low to high (0 to 1). It’s useful when synchronizing your test with clock edges or specific events in the DUT. We are not using it here.
+- The Timer trigger pauses the execution for a specified amount of time, simulating delays or waiting for a certain duration within your test.
 
->A decorator is defined as a function that takes another function as an argument and returns a new function that usually extends or alters the behavior of the original function.
+- RisingEdge waits for a signal to transition from low to high (0 to 1). It’s useful when synchronizing your test with clock edges or specific events in the DUT. We are not using it here.Similarly FallingEdge and Edge also be used
+
+- A decorator is defined as a function that takes another function as an argument and returns a new function that usually extends or alters the behavior of the original function.
 
 ```python
 def check(func):
@@ -265,17 +274,17 @@ def div(a, b):
 #div=check(div)    
 print(div(10, 0))
 ```
->@cocotb.test(): This is a decorator that marks the function or_test as a Cocotb test. Cocotb will automatically recognize this function and execute it as part of the test suite.
+- @cocotb.test(): This is a decorator that marks the function or_test as a Cocotb test. Cocotb will automatically recognize this function and execute it as part of the test suite.
 
->async def or_test(dut):: This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
+- async def or_test(dut):: This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
 
->dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even dut.a <= a[i] works.
+- dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even dut.a <= a[i] works.
 
->Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
+- Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
 
->await Timer(1, 'ns'): This pauses the execution of the test for 1 nanosecond. It allows time for the DUT to process the input changes and update the output. The await keyword ensures the test waits for the specified time in a non-blocking way.
+- await Timer(1, 'ns'): This pauses the execution of the test for 1 nanosecond. It allows time for the DUT to process the input changes and update the output. The await keyword ensures the test waits for the specified time in a non-blocking way.Similarly await Edge(dut.clk) can also be used.
 
->Non-blocking operations allow the testbench to simulate these events efficiently, where multiple parts of the hardware can be tested or driven independently without being blocked by one another.
+- Non-blocking operations allow the testbench to simulate these events efficiently, where multiple parts of the hardware can be tested or driven independently without being blocked by one another.
 
 ```python
 async def test1(dut):
@@ -285,11 +294,11 @@ async def test1(dut):
 async def test2(dut):
     await Timer(5, 'ns')
     print("Test 2 done")
-
 ```
->Both test1 and test2 will start running, and while test1 is waiting for 10 ns, test2 can complete after 5 ns without waiting for test1 to finish. This is non-blocking behavior, as the simulation doesn’t get held up by one test waiting.
 
->assert dut.y.value == y[i]: This checks if the actual output of the DUT (dut.y.value) matches the expected output from the y tuple for the current iteration. If the assertion fails, the message is displayed, showing which iteration of the test failed.
+- Both test1 and test2 will start running, and while test1 is waiting for 10 ns, test2 can complete after 5 ns without waiting for test1 to finish. This is non-blocking behavior, as the simulation doesn’t get held up by one test waiting.
+
+- assert dut.y.value == y[i]: This checks if the actual output of the DUT (dut.y.value) matches the expected output from the y tuple for the current iteration. If the assertion fails, the message is displayed, showing which iteration of the test failed.
 
 ![image](https://github.com/user-attachments/assets/91efa683-a501-48de-b0d8-a81468314e18)
 
