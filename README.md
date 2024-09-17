@@ -12,7 +12,7 @@ cocotb is a coroutine-based co-simulation library for writing HDL test benches i
   - Functional coverage
     - Bins and cross coverage
   - CRV
-- BFM's: (Bus Functional Module)
+- Default BFM's: (Bus Functional Module)
   - AXI
   - APB
   - Wishbone
