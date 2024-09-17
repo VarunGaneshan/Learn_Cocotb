@@ -202,9 +202,9 @@ cd tests
 vi dut_test.py
 ```
 
->assert 0: Always fails, triggering an assertion failure. It can be used to deliberately fail a test.
+- assert 0: Always fails, triggering an assertion failure. It can be used to deliberately fail a test.
 
->assert 1: Always passes, so it doesn't trigger any assertion failure.
+- assert 1: Always passes, so it doesn't trigger any assertion failure.
 
 ![image](https://github.com/user-attachments/assets/605f985f-f168-40ba-8565-156b01f3ef4c)
 ```bash
