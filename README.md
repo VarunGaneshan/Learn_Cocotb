@@ -85,7 +85,7 @@ ls venv/lib/python3.6/site-packages/
 </details>	
 
 <details>
- <summary> Simulation Example  </summary>
+ <summary> Or Simulation Example  </summary>
 
 **Using Local Simulation:**
 
