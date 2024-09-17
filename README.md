@@ -103,7 +103,7 @@ make or
 **Makefile Structure:**
 ![image](https://github.com/user-attachments/assets/9f66979d-dbed-441a-b7bb-8525d66a24ef)
 
-```bash
+```make
 vi Makefile
 
 SIM ?= icarus #simulator used,?= means "set the variable only if it is not defined."
@@ -130,7 +130,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim #This line includes the 
 ![image](https://github.com/user-attachments/assets/00572a2b-1709-4e64-92a0-aad3b95ba03e)
 
 ![image](https://github.com/user-attachments/assets/fbe83226-1ee7-4470-89ad-4f3cb81d44f3)
-```bash
+```YAML
 name: learning-cocotb
 run-name: ${{ github.actor }} is learning Cocotb
 on:
@@ -326,9 +326,8 @@ endmodule
 
 ![image](https://github.com/user-attachments/assets/b167d14e-82b7-4dc6-be69-a928c52a3369)
 
-![image](https://github.com/user-attachments/assets/3a0c657a-6b1a-40b0-89b3-f396bef4ec1b)
+**Check for assertion:**
 
-![image](https://github.com/user-attachments/assets/6a6ed363-c778-44b5-982f-98a041aa09ae)
 
 ![image](https://github.com/user-attachments/assets/5972a54c-213c-487e-a95e-25722e45e24b)
 
