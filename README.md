@@ -1,10 +1,12 @@
-# Learning Journey
+# Cocotb
 
 - cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
 
 - A coroutine is a special type of function that can pause its execution (using await) and resume later. It allows for asynchronous programming, meaning the program can perform non-blocking waits and handle other tasks in the meantime, making it more efficient.
 
 - In Cocotb, coroutines are used to simulate hardware behavior over time. Hardware tests typically involve waiting for certain signals or clocks, and coroutines allow the test to wait for these events in an efficient way without blocking the entire program.
+  
+# Learning Journey
 
 - Hello world - OR Gate
 - Interfaces
@@ -335,11 +337,13 @@ async def test2(dut):
 </details>	
 
 ## References 
+[Vijayvithal's](https://www.linkedin.com/in/vijayvithal/) [Playlist](https://www.youtube.com/playlist?list=PL3Z0z1uoFF-CElbEpGoRa5ph-TJUzuKnm)
+
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
 
 [Learn cocotb](https://learncocotb.com/docs/cocotb-tutorial/)
 
-[How to Get started with Cocotb-Rahul Behl](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
+[Rahul Behl's](https://www.linkedin.com/in/raulbehl/) [How to Get started with Cocotb](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
 
 [Python Decorators](https://www.youtube.com/watch?v=MYAEv3JoenI&ab_channel=howCode)
 
