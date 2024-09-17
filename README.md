@@ -293,7 +293,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 ```
 ![image](https://github.com/user-attachments/assets/c572d1e2-482e-46b2-835a-21012d57697c)
 
-**Check for assertion:**
+**Check for assertion failure:**
 ```verilog
 gedit ../hdl/or_gate.v
 module or_gate(
@@ -363,23 +363,78 @@ gtkwave orwaves.vcd
 
 <details>
  <summary> Xor Verification  </summary>
-   
-![image](https://github.com/user-attachments/assets/fa44557d-85ba-4209-8804-d3ab094c1050)
+	
+```verilog
+module xor_gate(
+	input wire a,
+	input wire b,
+	output wire y
+);
 
-![image](https://github.com/user-attachments/assets/9071da10-b554-4fd2-902f-5add412140d5)
+assign y=a^b;
 
-![image](https://github.com/user-attachments/assets/32a5bd36-8b68-45d9-a5f2-829657ebc09f)
+endmodule
+```
+```verilog
+module xor_test(
+	input wire a,
+	input wire b,
+	output wire y
+);
 
-![image](https://github.com/user-attachments/assets/efd29aaf-b4e3-4658-b7db-ecf0a4635d00)
+xor_gate xg(.a(a),.b(b),.y(y));
 
+initial begin
+	$dumpfile("xorwaves.vcd");
+	$dumpvars;
+end
+endmodule
+```
+```python
+import cocotb
+from cocotb.triggers import Timer,RisingEdge
+
+@cocotb.test()
+async def xor_test(dut):
+	a = (0,0,1,1)
+	b = (0,1,0,1)
+	y = (0,1,1,0)
+
+	for i in range(4):
+		dut.a.value = a[i]
+		dut.b.value = b[i]
+		await Timer(1,'ns')
+		assert dut.y.value==y[i],f"Error at iteration {i}"
+```
+```make
+gedit Makefile
+
+SIM ?= icarus 
+TOPLEVEL_LANG ?= verilog
+TARGET ?= xor 
+VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v
+VERILOG_SOURCES += $(PWD)/wrappers/or_test.v 
+VERILOG_SOURCES += $(PWD)/../hdl/xor_gate.v 
+VERILOG_SOURCES += $(PWD)/wrappers/xor_test.v 
+or:
+	rm -rf sim_build
+	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #modified top level
+xor:	
+	rm -rf sim_build
+	$(MAKE) sim MODULE=xor_test TOPLEVEL=xor_test 
+ 
+run: $(TARGET)
+
+include $(shell cocotb-config --makefiles)/Makefile.sim 
+```
 ![image](https://github.com/user-attachments/assets/6b673803-3f7a-4c46-b1b1-29e62faae047)
 
-![image](https://github.com/user-attachments/assets/cdf20c66-8e07-47ee-a56e-742f901086a6)
-
 ```bash
-
+make run
 ```
-</details>	
+**Waveform:**
+
+![image](https://github.com/user-attachments/assets/cdf20c66-8e07-47ee-a56e-742f901086a6)	
 
 ## References 
 [Vijayvithal's](https://www.linkedin.com/in/vijayvithal/) [Playlist](https://www.youtube.com/playlist?list=PL3Z0z1uoFF-CElbEpGoRa5ph-TJUzuKnm)
