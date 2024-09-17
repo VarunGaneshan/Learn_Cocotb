@@ -117,9 +117,9 @@ or:
 	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #python test file and top-level Verilog module
 include $(shell cocotb-config --makefiles)/Makefile.sim #This line includes the default Cocotb Makefile,It is always declared at last as it has its own make target which can run instead of or as default 'make' takes the first target.
 ```
->$(shell cocotb-config --makefiles): This calls the cocotb-config command, which knows where the Cocotb installation is located, and fetches the Makefile.sim file.
+- $(shell cocotb-config --makefiles): This calls the cocotb-config command, which knows where the Cocotb installation is located, and fetches the Makefile.sim file.
 
->Makefile.sim: This is a core Cocotb file that contains all the common rules for running the simulation, compiling, and linking your test with Cocotb.
+- Makefile.sim: This is a core Cocotb file that contains all the common rules for running the simulation, compiling, and linking your test with Cocotb.
 
 >To exit vim editor - : -> q! enter , for more type vimtutor on terminal
 
