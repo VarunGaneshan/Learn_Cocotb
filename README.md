@@ -1,6 +1,10 @@
 # Learning Journey
 
-cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
+- cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
+
+- A coroutine is a special type of function that can pause its execution (using await) and resume later. It allows for asynchronous programming, meaning the program can perform non-blocking waits and handle other tasks in the meantime, making it more efficient.
+
+- In Cocotb, coroutines are used to simulate hardware behavior over time. Hardware tests typically involve waiting for certain signals or clocks, and coroutines allow the test to wait for these events in an efficient way without blocking the entire program.
 
 - Hello world - OR Gate
 - Interfaces
@@ -83,7 +87,12 @@ ls venv/lib/python3.6/site-packages/
 
 **Using Local Simulation:**
 
+```bash
+git clone https://github.com/learn-cocotb/tutorial.git
+```
+
 ![image](https://github.com/user-attachments/assets/cf7b3c1c-6452-4ed7-a666-bd870b994cad)
+
 ```bash
 make or
 ```
@@ -192,11 +201,93 @@ make
 </details>	
 
 <details>
- <summary> Or Verification  </summary>
+ <summary> Or verification Demystifed</summary>
+	
+**Truth table-Expected Results:**
+ ![image](https://github.com/user-attachments/assets/0b5a7604-023f-4fac-8d40-c54a3eb9db09)	
  
- ![image](https://github.com/user-attachments/assets/e67df17f-c3fd-4c21-9f73-22d43ddf2671)
+OR gate design would be the DUT, and you'd write Python code to drive the OR gate inputs and check the outputs against expected results.
+DUT here stands for Device Under Test. It refers to the specific piece of hardware that is being tested or simulated
+
+![image](https://github.com/user-attachments/assets/e67df17f-c3fd-4c21-9f73-22d43ddf2671)
+
+```bash
+gedit hdl/or_gate.v
+module or_gate(
+	input wire a,
+	input wire b,
+	output wire y
+);
+assign y=a|b; //DUT
+endmodule
+```
 
 ![image](https://github.com/user-attachments/assets/2855e13d-69aa-4ac7-86d9-fc87d23e3fb7)
+
+```bash
+gedit tests/or_test.py
+import cocotb 
+from cocotb.triggers import Timer, RisingEdge 
+
+@cocotb.test() #this decorator pulls test-related features
+async def or_test(dut): 
+    a = (0, 0, 1, 1) #tuples are immutable-here values are predefined and won't change during the test
+    b = (0, 1, 0, 1)
+    y = (0, 1, 1, 1)
+
+    for i in range(4): #0 to 3
+        dut.a.value = a[i] 
+        dut.b.value = b[i]
+        await Timer(1, 'ns') 
+        assert dut.y.value == y[i], f"Error at iteration {i}" 
+```
+>The Timer trigger pauses the execution for a specified amount of time, simulating delays or waiting for a certain duration within your test.
+
+>RisingEdge waits for a signal to transition from low to high (0 to 1). It’s useful when synchronizing your test with clock edges or specific events in the DUT. We are not using it here.
+
+>A decorator is defined as a function that takes another function as an argument and returns a new function that usually extends or alters the behavior of the original function.
+
+```python
+def check(func):
+    def inside(a, b):
+        if b == 0:
+            print("Can't divide by 0")
+            return
+        func(a,b)
+    return inside
+
+@check 
+def div(a, b):
+    return a / b
+    
+#div=check(div)    
+print(div(10, 0))
+```
+>@cocotb.test(): This is a decorator that marks the function or_test as a Cocotb test. Cocotb will automatically recognize this function and execute it as part of the test suite.
+
+>async def or_test(dut):: This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
+
+>dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even dut.a <= a[i] works.
+
+>Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
+
+>await Timer(1, 'ns'): This pauses the execution of the test for 1 nanosecond. It allows time for the DUT to process the input changes and update the output. The await keyword ensures the test waits for the specified time in a non-blocking way.
+
+>Non-blocking operations allow the testbench to simulate these events efficiently, where multiple parts of the hardware can be tested or driven independently without being blocked by one another.
+
+```python
+async def test1(dut):
+    await Timer(10, 'ns')
+    print("Test 1 done")
+
+async def test2(dut):
+    await Timer(5, 'ns')
+    print("Test 2 done")
+
+```
+>Both test1 and test2 will start running, and while test1 is waiting for 10 ns, test2 can complete after 5 ns without waiting for test1 to finish. This is non-blocking behavior, as the simulation doesn’t get held up by one test waiting.
+
+>assert dut.y.value == y[i]: This checks if the actual output of the DUT (dut.y.value) matches the expected output from the y tuple for the current iteration. If the assertion fails, the message is displayed, showing which iteration of the test failed.
 
 ![image](https://github.com/user-attachments/assets/91efa683-a501-48de-b0d8-a81468314e18)
 
@@ -246,7 +337,7 @@ make
 ## References 
 [Docs.cocotb](https://docs.cocotb.org/en/stable/quickstart.html)
 
-[Learncocotb](https://learncocotb.com/docs/cocotb-tutorial/)
+[Learn cocotb](https://learncocotb.com/docs/cocotb-tutorial/)
 
 [How to Get started with Cocotb-Rahul Behl](https://quicksilicon.in/blog/how-to-get-started-with-cocotb#heading-introduction)
 
