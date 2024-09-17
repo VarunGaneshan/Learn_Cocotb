@@ -407,8 +407,6 @@ async def xor_test(dut):
 		assert dut.y.value==y[i],f"Error at iteration {i}"
 ```
 ```make
-gedit Makefile
-
 SIM ?= icarus 
 TOPLEVEL_LANG ?= verilog
 TARGET ?= xor 
