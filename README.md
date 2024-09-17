@@ -164,7 +164,7 @@ jobs:
         with:
           report_paths: '**/tests/results.xml'
 ```
-```bash
+```YAML
 on: [push] - run every time you push
 To run it manually use
 on:
@@ -223,7 +223,7 @@ make
 
 - DUT here stands for Device Under Test. It refers to the specific piece of hardware that is being tested or simulated.
 
-```bash
+```verilog
 gedit hdl/or_gate.v
 module or_gate(
 	input wire a,
@@ -301,6 +301,8 @@ async def test2(dut):
 - assert dut.y.value == y[i]: This checks if the actual output of the DUT (dut.y.value) matches the expected output from the y tuple for the current iteration. If the assertion fails, the message is displayed, showing which iteration of the test failed.
 
 ```make
+cd tests/
+gedit Makefile
 SIM ?= icarus 
 TOPLEVEL_LANG ?= verilog
 VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v 
@@ -314,29 +316,69 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 
 **Check for assertion:**
 ```verilog
-gedit hdl/or_gate.v
+gedit ../hdl/or_gate.v
 module or_gate(
 	input wire a,
 	input wire b,
 	output wire y
 );
-assign y=a^b; //DUT
+assign y=a^b; //Xor - must show an error for 1 1 - 0 3rd iteration
 endmodule
 ```
 
 ![image](https://github.com/user-attachments/assets/b167d14e-82b7-4dc6-be69-a928c52a3369)
 
-**Check for assertion:**
+**Create a wrapper for RTL code:**
+- A wrapper is used to add functionality or integrate RTL code without modifying it directly
+- Change xor to or in hdl/or_gate.v
+  
+```verilog
+gedit wrappers/or_test.v
+module or_test(
+	input wire a,
+	input wire b,
+	output wire y
+);
+or_gate or_gate( 
+	.a(a),
+	.b(b),
+	.y(y)
+); //call the instance
+initial begin
+	$dumpfile("orwaves.vcd"); // specifies the name of the VCD (Value Change Dump) file where simulation waveforms will be saved.
+	$dumpvars; // dumping all variables to the VCD file.
+end
+endmodule
+```
+**Other variants of dumpvars:**
+- $dumpvars: Dumps all variables in the current scope.
+- $dumpvars(level): Dumps variables with the specified level of hierarchy. For example, $dumpvars(0) dumps all variables at the top level, while $dumpvars(1) includes variables from one level below, and so on.
+- $dumpvars(level, instance): Dumps variables from a specific instance up to the specified level. For example, - $dumpvars(1, or_gate) would dump variables within the or_gate module and one level below.
+- $dumpvars(level, instance, var): Dumps specific variables from a particular instance and level. This allows for fine-grained control over which signals are dumped.
 
+```make
+gedit Makefile
+
+SIM ?= icarus 
+TOPLEVEL_LANG ?= verilog
+VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v
+VERILOG_SOURCES += $(PWD)/wrappers/or_test.v 
+or:
+	rm -rf sim_build
+	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #modified top level
+
+include $(shell cocotb-config --makefiles)/Makefile.sim 
+```
 
 ![image](https://github.com/user-attachments/assets/5972a54c-213c-487e-a95e-25722e45e24b)
 
+**Waveform:**
 ![image](https://github.com/user-attachments/assets/4c7b41f0-eb18-4463-b87e-3721521e06d8)
 
 ![image](https://github.com/user-attachments/assets/c114b2c6-3bdc-401d-ac03-7941aa691394)
 
 ```bash
-
+gtkwave orwaves.vcd
 ```
 
 </details>	
