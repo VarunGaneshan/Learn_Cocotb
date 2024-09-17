@@ -300,18 +300,35 @@ async def test2(dut):
 
 - assert dut.y.value == y[i]: This checks if the actual output of the DUT (dut.y.value) matches the expected output from the y tuple for the current iteration. If the assertion fails, the message is displayed, showing which iteration of the test failed.
 
-![image](https://github.com/user-attachments/assets/91efa683-a501-48de-b0d8-a81468314e18)
+```make
+SIM ?= icarus 
+TOPLEVEL_LANG ?= verilog
+VERILOG_SOURCES += $(PWD)/../hdl/or_gate.v 
+or:
+	rm -rf sim_build
+	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test 
 
+include $(shell cocotb-config --makefiles)/Makefile.sim 
+```
 ![image](https://github.com/user-attachments/assets/c572d1e2-482e-46b2-835a-21012d57697c)
 
-![image](https://github.com/user-attachments/assets/c2a77aaf-6252-415e-ad15-8e9fd8190bfe)
+**Check for assertion:**
+```verilog
+gedit hdl/or_gate.v
+module or_gate(
+	input wire a,
+	input wire b,
+	output wire y
+);
+assign y=a^b; //DUT
+endmodule
+```
 
 ![image](https://github.com/user-attachments/assets/b167d14e-82b7-4dc6-be69-a928c52a3369)
 
 ![image](https://github.com/user-attachments/assets/3a0c657a-6b1a-40b0-89b3-f396bef4ec1b)
 
 ![image](https://github.com/user-attachments/assets/6a6ed363-c778-44b5-982f-98a041aa09ae)
-
 
 ![image](https://github.com/user-attachments/assets/5972a54c-213c-487e-a95e-25722e45e24b)
 
