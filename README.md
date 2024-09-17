@@ -234,7 +234,7 @@ assign y=a|b; //DUT
 endmodule
 ```
 
-```bash
+```python
 gedit tests/or_test.py
 import cocotb 
 from cocotb.triggers import Timer, RisingEdge 
