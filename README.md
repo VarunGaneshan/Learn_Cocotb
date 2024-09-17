@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/898fb828-547c-4eaa-8124-ca458570b36f)# Cocotb
+# Cocotb
 
 - cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
 
