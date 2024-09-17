@@ -1,4 +1,4 @@
-# Cocotb
+# My Learning Journey
 
 ![image](https://github.com/user-attachments/assets/24ada859-6c1d-4b7c-adbd-24c593412a37)
 
@@ -7,8 +7,6 @@
 - A coroutine is a special type of function that can pause its execution (using await) and resume later. It allows for asynchronous programming, meaning the program can perform non-blocking waits and handle other tasks in the meantime, making it more efficient.
 
 - In Cocotb, coroutines are used to simulate hardware behavior over time. Hardware tests typically involve waiting for certain signals or clocks, and coroutines allow the test to wait for these events in an efficient way without blocking the entire program.
-
-# My Learning Journey
    
 <details>
  <summary> Environment Set Up  </summary>
