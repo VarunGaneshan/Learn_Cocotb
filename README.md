@@ -369,10 +369,10 @@ or:
 
 include $(shell cocotb-config --makefiles)/Makefile.sim 
 ```
-
 ![image](https://github.com/user-attachments/assets/5972a54c-213c-487e-a95e-25722e45e24b)
 
 **Waveform:**
+
 ![image](https://github.com/user-attachments/assets/4c7b41f0-eb18-4463-b87e-3721521e06d8)
 
 ![image](https://github.com/user-attachments/assets/c114b2c6-3bdc-401d-ac03-7941aa691394)
@@ -380,7 +380,6 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 ```bash
 gtkwave orwaves.vcd
 ```
-
 </details>	
 
 <details>
