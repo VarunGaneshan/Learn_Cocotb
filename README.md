@@ -169,11 +169,6 @@ on:
 
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
 
-</details>	
-
-<details>
- <summary> Xor Verification  </summary>
- 
 **Clone the repo locally**:
 ![image](https://github.com/user-attachments/assets/635dd656-adcd-4fcf-adaa-8f64e8696810)
 ```bash
@@ -185,6 +180,11 @@ cd tests
 ```bash
 vi dut_test.py
 ```
+
+>assert 0: Always fails, triggering an assertion failure. It can be used to deliberately fail a test.
+
+>assert 1: Always passes, so it doesn't trigger any assertion failure.
+
 ![image](https://github.com/user-attachments/assets/605f985f-f168-40ba-8565-156b01f3ef4c)
 ```bash
 make
