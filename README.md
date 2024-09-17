@@ -434,6 +434,8 @@ make run
 
 ![image](https://github.com/user-attachments/assets/cdf20c66-8e07-47ee-a56e-742f901086a6)	
 
+</details>
+
 ## References 
 [Vijayvithal's](https://www.linkedin.com/in/vijayvithal/) [Playlist](https://www.youtube.com/playlist?list=PL3Z0z1uoFF-CElbEpGoRa5ph-TJUzuKnm)
 
