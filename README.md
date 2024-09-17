@@ -1,4 +1,4 @@
-# Cocotb
+![image](https://github.com/user-attachments/assets/898fb828-547c-4eaa-8124-ca458570b36f)# Cocotb
 
 - cocotb is a coroutine-based co-simulation library for writing HDL test benches in Python. All you need is Python, gnu make and a hdl simulator.
 
@@ -7,27 +7,6 @@
 - In Cocotb, coroutines are used to simulate hardware behavior over time. Hardware tests typically involve waiting for certain signals or clocks, and coroutines allow the test to wait for these events in an efficient way without blocking the entire program.
   
 # Learning Journey
-
-- Hello world - OR Gate
-- Interfaces
-- Randomization
-- Drivers
-- Monitors
-- Scoreboards
-- Coverage
-  - Functional coverage
-    - Bins and cross coverage
-  - CRV
-- Default BFM's: (Bus Functional Module)
-  - AXI
-  - APB
-  - Wishbone
-  - Avalon
-  - PCIe
-  - Ethernet
-  - UART
-  - SPI
-  - I2C
    
 <details>
  <summary> Environment Set Up  </summary>
