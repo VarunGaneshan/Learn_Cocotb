@@ -265,7 +265,7 @@ print(div(10, 0))
 
 - dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even dut.a <= a[i] works.
 
-- Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
+- Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces [delta cycles](https://www.reddit.com/r/FPGA/comments/qxk655/can_anyone_explain_delta_cycle_in_simple_terms/) to sequence events that happen at the same time step.
 
 - await Timer(1, 'ns'): This pauses the execution of the test for 1 nanosecond. It allows time for the DUT to process the input changes and update the output. The await keyword ensures the test waits for the specified time in a non-blocking way.Similarly await Edge(dut.clk) can also be used.
 
