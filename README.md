@@ -263,7 +263,7 @@ print(div(10, 0))
 
 - async def or_test(dut): This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
 
-- dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even <mark>dut.a <= a[i]</mark> works.
+- dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even ==dut.a <= a[i]== works.
 
 - Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
 
