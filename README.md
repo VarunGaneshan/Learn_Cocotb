@@ -171,6 +171,10 @@ on:
 
 ![image](https://github.com/user-attachments/assets/6fa8b9ed-51c0-4926-a3dc-9e51af3787c2)
 
+```bash
+gtkwave waveform.vcd
+```
+
 **Clone the repo locally**:
 ![image](https://github.com/user-attachments/assets/635dd656-adcd-4fcf-adaa-8f64e8696810)
 ```bash
