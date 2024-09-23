@@ -28,12 +28,12 @@ sudo apt-get install iverilog
 ```bash
 python3 -m venv venv
 ```
+>This makes sure that the global Python installation isn't corrupted.
+
 ![image](https://github.com/user-attachments/assets/2d4dafc3-2e0f-42fb-abf3-3311c0837016)
 ```bash
 sudo apt-get install python3-venv
 ```
-
->This makes sure that the global Python installation isn't corrupted.
 
 ![image](https://github.com/user-attachments/assets/5f0eafe0-bb71-47ce-9072-2bceffbd13c1)
 ```bash
