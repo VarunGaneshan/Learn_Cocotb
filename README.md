@@ -96,7 +96,7 @@ VERILOG_SOURCES += $(PWD)/wrappers/or_test.v
 or:
 	rm -rf sim_build #clean build
 	$(MAKE) sim MODULE=or_test TOPLEVEL=or_test #python test file and top-level Verilog module
-include $(shell cocotb-config --makefiles)/Makefile.sim #This line includes the default Cocotb Makefile,It is always declared at last as it has its own make target which can run instead of or as default 'make' takes the first target.
+include $(shell cocotb-config --makefiles)/Makefile.sim #This line includes the default Cocotb Makefile,It is always declared at last as it has its make target which can run instead of 'or' as default 'make' takes the first target.
 ```
 - $(shell cocotb-config --makefiles): This calls the cocotb-config command, which knows where the Cocotb installation is located, and fetches the Makefile.sim file.
 
