@@ -239,7 +239,7 @@ async def or_test(dut):
 
 - The Timer trigger pauses the execution for a specified amount of time, simulating delays or waiting for a certain duration within your test.
 
-- RisingEdge waits for a signal to transition from low to high (0 to 1). It’s useful when synchronizing your test with clock edges or specific events in the DUT. We are not using it here.Similarly FallingEdge and Edge also be used
+- RisingEdge waits for a signal to transition from low to high (0 to 1). It’s useful when synchronizing your test with clock edges or specific events in the DUT. We are not using it here.Similarly FallingEdge and Edge can also be used.
 
 - A decorator is defined as a function that takes another function as an argument and returns a new function that usually extends or alters the behavior of the original function.
 
@@ -261,9 +261,9 @@ print(div(10, 0))
 ```
 - @cocotb.test(): This is a decorator that marks the function or_test as a Cocotb test. Cocotb will automatically recognize this function and execute it as part of the test suite.
 
-- async def or_test(dut):: This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
+- async def or_test(dut): This defines the test function as an asynchronous coroutine (async), which allows you to use await inside the function for non-blocking waits.
 
-- dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even dut.a <= a[i] works.
+- dut.a.value = a[i]: This sets the value of the a input of the DUT to the corresponding value in the a tuple for each iteration of the loop.In python even <mark>dut.a <= a[i]</mark> works.
 
 - Delta delay is a concept in digital simulation that represents an infinitesimally small unit of time. It is a way to model events that happen at the same simulation time but need to be evaluated in a specific order. In hardware simulations, even though two events might appear to happen "simultaneously" in real-time, the simulator needs to process them in some order. The simulator introduces delta cycles to sequence events that happen at the same time step.
 
